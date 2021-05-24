@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PackageId>Oonyoen.CommandLineParser.AspNetCore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>oonyoen</Authors>
+    <Company>oonyoen-org</Company>
+    <PackageDescription>Generic host extensions for CommandLineParser. </PackageDescription>
+    <RepositoryUrl>https://github.com/oonyoen-org/Oonyoen.CommandLineParser</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
