@@ -5,11 +5,18 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{AEB60000-044A-4C8C-91C6-CCE31A011B1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oonyoen.CommandLineParser.Sample", "samples\Oonyoen.CommandLineParser.Sample\Oonyoen.CommandLineParser.Sample.csproj", "{24FE4F2A-08B7-4395-BA68-691855ADD6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oonyoen.CommandLineParser.Sample", "samples\Oonyoen.CommandLineParser.Sample\Oonyoen.CommandLineParser.Sample.csproj", "{24FE4F2A-08B7-4395-BA68-691855ADD6F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8ECDDD2A-2E7E-418B-A628-3EE572D8079C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oonyoen.CommandLineParser.AspNetCore", "src\Oonyoen.CommandLineParser.AspNetCore\Oonyoen.CommandLineParser.AspNetCore.csproj", "{4FA070C9-2211-4BD6-86E1-3CC7A3F7CBC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oonyoen.CommandLineParser.AspNetCore", "src\Oonyoen.CommandLineParser.AspNetCore\Oonyoen.CommandLineParser.AspNetCore.csproj", "{4FA070C9-2211-4BD6-86E1-3CC7A3F7CBC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27788470-6BE9-41BA-A445-0B43B5F51ECB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +26,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{24FE4F2A-08B7-4395-BA68-691855ADD6F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,8 +53,14 @@ Global
 		{4FA070C9-2211-4BD6-86E1-3CC7A3F7CBC0}.Release|x86.ActiveCfg = Release|Any CPU
 		{4FA070C9-2211-4BD6-86E1-3CC7A3F7CBC0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{24FE4F2A-08B7-4395-BA68-691855ADD6F8} = {AEB60000-044A-4C8C-91C6-CCE31A011B1D}
 		{4FA070C9-2211-4BD6-86E1-3CC7A3F7CBC0} = {8ECDDD2A-2E7E-418B-A628-3EE572D8079C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA43A315-7063-46E0-A706-A4A7A5E91F2E}
 	EndGlobalSection
 EndGlobal
