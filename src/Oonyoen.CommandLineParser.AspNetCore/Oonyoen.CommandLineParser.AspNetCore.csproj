@@ -9,6 +9,10 @@
     <Company>oonyoen-org</Company>
     <PackageDescription>Generic host extensions for CommandLineParser. </PackageDescription>
     <RepositoryUrl>https://github.com/oonyoen-org/Oonyoen.CommandLineParser</RepositoryUrl>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.pkg.github.com/oonyoen-org/index.json;
+    </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
