@@ -31,32 +31,32 @@ jobs:
       run: dotnet test --configuration Release --no-build
 
     - name: Version and Tag
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       id: bump_version
       uses: mathieudutour/github-tag-action@v5.3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Prep Version String
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       run: echo "VERSION_NUMBER=$(echo ${{ steps.bump_version.outputs.new_tag }} | sed 's/[v]//g')" >> $GITHUB_ENV
 
     - name: Set Nuget Package Version
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       uses: roryprimrose/set-vs-sdk-project-version@v1
       with:
         version: ${{ env.VERSION_NUMBER }}
 
     - name: Pack
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       run: dotnet pack --configuration Release --no-restore --output nupkgs
 
     - name: Publish Nuget Packages
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       run: dotnet nuget push nupkgs/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
     - name: Create Release
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
