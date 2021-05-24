@@ -49,7 +49,7 @@ jobs:
 
     - name: Pack
       if: github.ref == 'refs/heads/main'
-      run: dotnet pack --configuration Release --no-restore --output nupkgs
+      run: dotnet pack src/Oonyoen.CommandLineParser.AspNetCore --configuration Release --no-restore --output nupkgs
 
     - name: Publish Nuget Packages
       if: github.ref == 'refs/heads/main'
