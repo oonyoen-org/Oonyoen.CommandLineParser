@@ -1,5 +1,5 @@
 # Oonyoen.CommandLineParser
-A simple library that you can use to create command line interaction with a long-lived server. Intended primarily for test applications and demoing functionality.
+A simple library that you can use to create command line interaction with a long-lived server. Intended primarily for test applications and demoing functionality. Uses the excellent library [CommandLineParser](https://github.com/commandlineparser/commandline).
 
 # Usage
 
