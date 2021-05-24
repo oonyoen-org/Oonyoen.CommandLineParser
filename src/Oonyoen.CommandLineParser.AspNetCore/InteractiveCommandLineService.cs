@@ -16,6 +16,7 @@ namespace Oonyoen.CommandLineParser.AspNetCore
         private readonly IServiceProvider serviceProvider;
         private readonly IOptions<InteractiveCommandLineOptions> options;
         private readonly ILogger<InteractiveCommandLineService> logger;
+        private readonly CancellableConsole console;
 
         public InteractiveCommandLineService(
             IServiceProvider serviceProvider,
@@ -25,6 +26,7 @@ namespace Oonyoen.CommandLineParser.AspNetCore
             this.serviceProvider = serviceProvider;
             this.options = options;
             this.logger = logger;
+            console = new CancellableConsole();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -33,9 +35,15 @@ namespace Oonyoen.CommandLineParser.AspNetCore
             {
                 try
                 {
+                    console.Start();
                     while (!stoppingTokenSource.IsCancellationRequested)
                     {
-                        var nextLine = Console.ReadLine();
+                        var hasNextLine = console.TryReadLine(out var nextLine);
+                        if (!hasNextLine)
+                        {
+                            continue;
+                        }
+
                         var args = StringArgumentifier.SplitCommandLine(nextLine);
                         var result = Parser.Default.ParseArguments(args, options.Value.Verbs.Keys.ToArray());
                         foreach (var (type, handler) in options.Value.Verbs)
@@ -49,6 +57,10 @@ namespace Oonyoen.CommandLineParser.AspNetCore
                 {
                     logger.LogError($"Encountered an exception in the {nameof(InteractiveCommandLineService)} execution loop!", ex);
                 }
+                finally
+                {
+                    stopped.SetResult();
+                }
             });
             return Task.CompletedTask;
         }
@@ -56,6 +68,7 @@ namespace Oonyoen.CommandLineParser.AspNetCore
         public async Task StopAsync(CancellationToken cancellationToken)
         {
             stoppingTokenSource.Cancel();
+            await console.DisposeAsync();
             await stopped.Task;
         }
     }
