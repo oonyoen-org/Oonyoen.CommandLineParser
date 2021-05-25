@@ -55,7 +55,7 @@ namespace Oonyoen.CommandLineParser.AspNetCore
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError($"Encountered an exception in the {nameof(InteractiveCommandLineService)} execution loop!", ex);
+                    logger.LogError(ex, $"Encountered an exception in the {nameof(InteractiveCommandLineService)} execution loop!");
                 }
                 finally
                 {
