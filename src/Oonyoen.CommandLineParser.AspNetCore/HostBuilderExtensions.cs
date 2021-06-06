@@ -8,7 +8,7 @@ namespace Oonyoen.CommandLineParser.AspNetCore
 {
     public static class HostBuilderExtensions
     {
-        public static IHostBuilder UseInteractiveCommandLine(this IHostBuilder hostBuilder, Action<InteractiveCommandLineOptions> configure)
+        public static IHostBuilder ConfigureInteractiveCommandLine(this IHostBuilder hostBuilder, Action<InteractiveCommandLineOptions> configure)
         {
             hostBuilder
                 .ConfigureServices((context, services) =>

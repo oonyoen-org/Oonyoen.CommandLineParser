@@ -18,7 +18,7 @@ namespace Oonyoen.CommandLineParser.Sample
                 {
                     services.AddTransient<IVerbHandler<PrintOptions>, PrintHandler>();
                 })
-                .UseInteractiveCommandLine(options =>
+                .ConfigureInteractiveCommandLine(options =>
                 {
                     options.AddVerb<PrintOptions>();
                 })
